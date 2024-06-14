@@ -1,0 +1,120 @@
+[gd_scene load_steps=17 format=3 uid="uid://emh0omlx48xq"]
+
+[ext_resource type="Script" path="res://scenes/bird.gd" id="1_b0f1v"]
+[ext_resource type="Texture2D" uid="uid://bvu24yopch76r" path="res://sprites/obstacles/crow.png" id="1_ot05l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmsyp"]
+atlas = ExtResource("1_ot05l")
+region = Rect2(0, 0, 697, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv4lo"]
+atlas = ExtResource("1_ot05l")
+region = Rect2(697, 0, 697, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_use48"]
+atlas = ExtResource("1_ot05l")
+region = Rect2(1394, 0, 697, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwmay"]
+atlas = ExtResource("1_ot05l")
+region = Rect2(2091, 0, 697, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiv1h"]
+atlas = ExtResource("1_ot05l")
+region = Rect2(0, 800, 697, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ufjo"]
+atlas = ExtResource("1_ot05l")
+region = Rect2(697, 800, 697, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv6ts"]
+atlas = ExtResource("1_ot05l")
+region = Rect2(1394, 800, 697, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr4oa"]
+atlas = ExtResource("1_ot05l")
+region = Rect2(2091, 800, 697, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mput"]
+atlas = ExtResource("1_ot05l")
+region = Rect2(0, 1600, 697, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d7pb"]
+atlas = ExtResource("1_ot05l")
+region = Rect2(697, 1600, 697, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m867"]
+atlas = ExtResource("1_ot05l")
+region = Rect2(1394, 1600, 697, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqtpy"]
+atlas = ExtResource("1_ot05l")
+region = Rect2(2091, 1600, 697, 800)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l32i1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmsyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv4lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_use48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwmay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiv1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ufjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv6ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr4oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mput")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d7pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m867")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqtpy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6o43"]
+size = Vector2(630, 343)
+
+[node name="Bird" type="Area2D" groups=["obstacles"]]
+scale = Vector2(0.15, 0.15)
+collision_layer = 3
+script = ExtResource("1_b0f1v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l32i1")
+autoplay = "default"
+frame_progress = 0.530383
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, -26)
+shape = SubResource("RectangleShape2D_c6o43")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
