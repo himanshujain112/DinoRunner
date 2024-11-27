@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvnbsrve2ti4f"]
 
-[ext_resource type="Script" path="res://scenes/ridge.gd" id="1_dk641"]
+[ext_resource type="Script" path="res://scripts/ridge.gd" id="1_dk641"]
 [ext_resource type="Texture2D" uid="uid://bdbn1dm14pu64" path="res://sprites/obstacles/ridge2.png" id="1_q314b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83v38"]
@@ -14,7 +14,7 @@ script = ExtResource("1_dk641")
 texture = ExtResource("1_q314b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_83v38")
 
 [node name="Timer" type="Timer" parent="."]

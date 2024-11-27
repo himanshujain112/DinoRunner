@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cdd48icumxbhn"]
 
-[ext_resource type="Script" path="res://scenes/ui.gd" id="1_8guob"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_8guob"]
 [ext_resource type="Texture2D" uid="uid://dyqh3eu3kiymv" path="res://sprites/dino/DinoSprites - doux.png" id="2_kwjye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hvqld"]

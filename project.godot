@@ -15,6 +15,10 @@ run/main_scene="res://scenes/map.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://scripts/game_manager.gd"
+
 [dotnet]
 
 project/assembly_name="Dino in the jungle"

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b8v86251ilaq0"
-path="res://.godot/imported/bgaud.wav-ba0c6badf3231818e2548f6653ef1a48.sample"
+path="res://.godot/imported/bgaud.wav-96c3524c8e38e48795cc08205a8d7654.sample"
 
 [deps]
 
-source_file="res://sprites/bgaud.wav"
-dest_files=["res://.godot/imported/bgaud.wav-ba0c6badf3231818e2548f6653ef1a48.sample"]
+source_file="res://music/bgaud.wav"
+dest_files=["res://.godot/imported/bgaud.wav-96c3524c8e38e48795cc08205a8d7654.sample"]
 
 [params]
 

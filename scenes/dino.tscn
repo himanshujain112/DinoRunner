@@ -1,8 +1,8 @@
 [gd_scene load_steps=28 format=3 uid="uid://bfx834xltw2sg"]
 
 [ext_resource type="Texture2D" uid="uid://dyqh3eu3kiymv" path="res://sprites/dino/DinoSprites - doux.png" id="1_1s1sd"]
-[ext_resource type="Script" path="res://scenes/dino.gd" id="1_1vak3"]
-[ext_resource type="AudioStream" uid="uid://c8t0puyvfka3m" path="res://sprites/jump.wav" id="3_ve13d"]
+[ext_resource type="Script" path="res://scripts/dino.gd" id="1_1vak3"]
+[ext_resource type="AudioStream" uid="uid://c8t0puyvfka3m" path="res://music/jump.wav" id="3_ve13d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3mbe"]
 atlas = ExtResource("1_1s1sd")
@@ -187,9 +187,8 @@ script = ExtResource("1_1vak3")
 
 [node name="Animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_womik")
-animation = &"duck"
+animation = &"running"
 autoplay = "idle"
-frame_progress = 0.38941
 
 [node name="collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_dn7lr")
