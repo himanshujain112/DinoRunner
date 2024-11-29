@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $Animations
-const SPEED = 200.0
+var SPEED : float
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -11,7 +11,8 @@ enum gameState {IDLE, RUNNING, JUMPING, DUCKING}
 var currentState: gameState = gameState.IDLE
 
 func _ready() -> void:
-	global_position = Vector2i(80,516)
+	SPEED = GameManager.startSpeed
+	global_position = Vector2i(90,516)
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -23,6 +24,9 @@ func _process(_delta: float) -> void:
 	if GameManager.gameRunning:
 		currentState = gameState.RUNNING
 		checkInputs()
+	
+		if GameManager.spawnCount >= 20 and not GameManager.hardMode:
+			increaseDifficulty()
 	else:
 		currentState = gameState.IDLE
 
@@ -67,3 +71,7 @@ func stand():
 	anim.play("running")
 	velocity.x = SPEED
 	print("noramal run")
+
+func increaseDifficulty():
+	GameManager.hardMode = true
+	SPEED = GameManager.hardSpeed

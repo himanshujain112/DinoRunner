@@ -7,18 +7,22 @@ var cameraPos := Vector2i(576, 324)
 #
 var screenSize:Vector2
 var obs_type:Array
-var speed: float = 200
+var speed: float
 @onready var camera = $eyes
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	speed = GameManager.startSpeed
 	screenSize = get_window().size
 	obs_type = [bird, ridge]
 	#$ui.get_node("start").pressed.connect(newGame())
 
 func _process(_delta: float) -> void:
 	if GameManager.gameRunning:
+		if GameManager.spawnCount >= 20 and not GameManager.hardMode:
+			_increaseDifficulty()
+
 		camera.position.x += speed * _delta
 		#ground pos update
 		if camera.position.x - $background/ground.position.x > screenSize.x * 1.5:
@@ -37,3 +41,8 @@ func _on_timer_timeout():
 		
 		obs.position.x = $dino.position.x + screenSize.x
 		get_node("container").add_child(obs)
+		GameManager.spawnCount += 1
+
+func _increaseDifficulty():
+	GameManager.hardMode = true
+	speed = GameManager.hardSpeed
