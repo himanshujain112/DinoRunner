@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bdbn1dm14pu64" path="res://sprites/obstacles/ridge2.png" id="1_q314b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83v38"]
-size = Vector2(38, 26)
+size = Vector2(38, 23.5)
 
 [node name="ridge" type="Area2D" groups=["obstacles"]]
 scale = Vector2(2, 2)
@@ -14,12 +14,7 @@ script = ExtResource("1_dk641")
 texture = ExtResource("1_q314b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(0, 1.75)
 shape = SubResource("RectangleShape2D_83v38")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.5
-autostart = true
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

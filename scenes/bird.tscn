@@ -96,11 +96,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6o43"]
-size = Vector2(630, 343)
+size = Vector2(630, 218.833)
 
 [node name="Bird" type="Area2D" groups=["obstacles"]]
 scale = Vector2(0.15, 0.15)
-collision_layer = 3
 script = ExtResource("1_b0f1v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -110,12 +109,7 @@ frame = 3
 frame_progress = 0.754807
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10, -26)
+position = Vector2(10, 36.0833)
 shape = SubResource("RectangleShape2D_c6o43")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.5
-autostart = true
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

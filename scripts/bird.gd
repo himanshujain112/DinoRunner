@@ -15,13 +15,4 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
-		gameOver()
-
-func gameOver():
-	get_tree().paused = true
-	get_node("/root/map/ui").show()
-	get_node("/root/map").updateHighScore()
-
-func _on_timer_timeout():
-	print("destoryed")
-	queue_free()
+		print("destroy")

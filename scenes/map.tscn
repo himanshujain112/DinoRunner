@@ -383,7 +383,7 @@ metadata/_edit_vertical_guides_ = [1197.0]
 metadata/_edit_horizontal_guides_ = [563.0, 341.0]
 
 [node name="dino" parent="." instance=ExtResource("3_1sx05")]
-position = Vector2(310, 516)
+position = Vector2(310, 523)
 scale = Vector2(5, 5)
 
 [node name="eyes" type="Camera2D" parent="."]

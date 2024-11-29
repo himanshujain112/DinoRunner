@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $Animations
-const SPEED = 300.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -40,21 +40,30 @@ func _process(_delta: float) -> void:
 		gameState.DUCKING:
 			# Ducking animation
 			duck()
+	move_and_slide()
 
 func checkInputs():
+	#print("checking inputs")
 	if Input.is_action_pressed("jump") and is_on_floor():
+		print("jump")
 		currentState = gameState.JUMPING
-	if Input.is_action_just_pressed("duck") and is_on_floor():
+	if Input.is_action_pressed("duck") and is_on_floor():
+		print("duck")
 		currentState = gameState.DUCKING
 	if Input.is_action_just_released("duck") and is_on_floor():
+		print("duck off")
 		currentState = gameState.RUNNING
 
 func jump():
 	anim.play("jump")
 	velocity.y = JUMP_VELOCITY
+	print("jump called")
 func duck():
+	
 	anim.play("duck")
-	velocity.x += SPEED
+	velocity.x = SPEED
+	print("duck called")
 func stand():
 	anim.play("running")
-	velocity.x += SPEED
+	velocity.x = SPEED
+	print("noramal run")
